@@ -1051,6 +1051,12 @@ def gerar_dashboard_html(metricas, clientes_segmentados, estatisticas, registros
 
     svg_barras = _gerar_svg_barras(metricas.get("por_mes", []))
     svg_pizza = _gerar_svg_pizza(clientes_segmentados)
+    # Novo: gerar grafico de barras agrupadas
+    if registros:
+        dados_cat_reg = agregar_categoria_regiao(registros)
+        svg_barras_agrupadas = gerar_grafico_barras_agrupadas(dados_cat_reg)
+    else:
+        svg_barras_agrupadas = "<p>Sem dados para o grafico de barras agrupadas.</p>"
 
     linhas_top = "".join(
         f"<tr><td>{i}</td><td>{p.get('produto', '-')}</td>"
