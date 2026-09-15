@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="420" viewBox="0 0 680 420">
+<rect width="680" height="420" fill="#FFFFFF"/>
+<text x="340.0" y="28" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" fill="#1a1a1a">Segmentação — Ouro concentra 33 clientes (55.0%)</text>
+<path d="M 230.0 220.0 L 230.0 75.0 A 145 145 0 0 1 289.0 87.5 Z" fill="#CD7F32" stroke="#fff" stroke-width="2"/>
+<text x="248.1" y="138.9" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">6.7%</text>
+<path d="M 230.0 220.0 L 289.0 87.5 A 145 145 0 0 1 274.8 357.9 Z" fill="#C0C0C0" stroke="#fff" stroke-width="2"/>
+<text x="316.9" y="228.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">38.3%</text>
+<path d="M 230.0 220.0 L 274.8 357.9 A 145 145 0 1 1 230.0 75.0 Z" fill="#FFD700" stroke="#fff" stroke-width="2"/>
+<text x="144.1" y="237.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">55.0%</text>
+<text x="480" y="112" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" fill="#333">Legenda</text>
+<rect x="480" y="130" width="16" height="16" fill="#CD7F32" stroke="#333" stroke-width="0.5" rx="2"/>
+<text x="504" y="143" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#333">Bronze: 4 (6.7%)</text>
+<rect x="480" y="168" width="16" height="16" fill="#C0C0C0" stroke="#333" stroke-width="0.5" rx="2"/>
+<text x="504" y="181" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#333">Prata: 23 (38.3%)</text>
+<rect x="480" y="206" width="16" height="16" fill="#FFD700" stroke="#333" stroke-width="0.5" rx="2"/>
+<text x="504" y="219" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#333">Ouro: 33 (55.0%)</text>
+<text x="480" y="262" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#555">Total: 60 clientes</text>
+</svg>

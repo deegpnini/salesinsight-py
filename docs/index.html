@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalesInsight PY — Dashboard</title>
+<style>
+  :root {
+    --verde: #78C043;
+    --verde-escuro: #5a9a2e;
+    --cinza: #f5f7fa;
+    --texto: #1a1a1a;
+    --borda: #e0e4e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f0f2f5;
+    color: var(--texto);
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+  }
+  header {
+    background: linear-gradient(135deg, #78C043, #5a9a2e);
+    color: white;
+    padding: 28px 24px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  header h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+  header p {
+    opacity: 0.92;
+    font-size: 14px;
+  }
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .kpi {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--verde);
+  }
+  .kpi .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .kpi .value {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--texto);
+  }
+  .section {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .section h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--verde-escuro);
+    border-bottom: 2px solid var(--verde);
+    padding-bottom: 6px;
+  }
+  .graficos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 900px) {
+    .graficos { grid-template-columns: 1.4fr 1fr; }
+  }
+  .grafico-box {
+    background: #fafafa;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    padding: 12px;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--borda);
+  }
+  th {
+    background: #f0f7e8;
+    color: var(--verde-escuro);
+    font-weight: 600;
+  }
+  tr:hover { background: #f9fbf6; }
+  td.valor { text-align: right; font-variant-numeric: tabular-nums; }
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>SalesInsight PY — Dashboard Analítico</h1>
+    <p>Bônus B04 · Gráficos SVG + Dashboard HTML · Projeto de Análise Preditiva [T4] · SCTEC/SENAI</p>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="label">Total de Vendas</div>
+      <div class="value">333</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Receita Total</div>
+      <div class="value">R$ 1.070.964,34</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Ticket Médio</div>
+      <div class="value">R$ 3.216,11</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Clientes (O / P / B)</div>
+      <div class="value">33 / 23 / 4</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Visualizações</h2>
+    <div class="graficos">
+      <div class="grafico-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="860" height="480" viewBox="0 0 860 480">
+<rect width="860" height="480" fill="#FFFFFF"/>
+<text x="430.0" y="28" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" fill="#1a1a1a">Receita Mensal — Fevereiro foi o mês de maior receita (R$ 167.513,45)</text>
+<line x1="80" y1="400.0" x2="830" y2="400.0" stroke="#E8E8E8" stroke-width="1"/>
+<text x="72" y="404.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#555">R$ 0</text>
+<line x1="80" y1="332.0" x2="830" y2="332.0" stroke="#E8E8E8" stroke-width="1"/>
+<text x="72" y="336.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#555">R$ 33.503</text>
+<line x1="80" y1="264.0" x2="830" y2="264.0" stroke="#E8E8E8" stroke-width="1"/>
+<text x="72" y="268.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#555">R$ 67.005</text>
+<line x1="80" y1="196.0" x2="830" y2="196.0" stroke="#E8E8E8" stroke-width="1"/>
+<text x="72" y="200.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#555">R$ 100.508</text>
+<line x1="80" y1="128.0" x2="830" y2="128.0" stroke="#E8E8E8" stroke-width="1"/>
+<text x="72" y="132.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#555">R$ 134.011</text>
+<line x1="80" y1="60.0" x2="830" y2="60.0" stroke="#E8E8E8" stroke-width="1"/>
+<text x="72" y="64.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#555">R$ 167.513</text>
+<rect x="80.0" y="203.6" width="74.4" height="196.4" fill="#78C043" rx="2" ry="2"/>
+<text x="117.2" y="198.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 96.752</text>
+<text x="117.2" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Jan</text>
+<rect x="164.4" y="60.0" width="74.4" height="340.0" fill="#78C043" rx="2" ry="2"/>
+<text x="201.7" y="55.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 167.513</text>
+<text x="201.7" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Fev</text>
+<rect x="248.9" y="189.7" width="74.4" height="210.3" fill="#78C043" rx="2" ry="2"/>
+<text x="286.1" y="184.7" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 103.611</text>
+<text x="286.1" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Mar</text>
+<rect x="333.3" y="211.0" width="74.4" height="189.0" fill="#78C043" rx="2" ry="2"/>
+<text x="370.6" y="206.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 93.103</text>
+<text x="370.6" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Abr</text>
+<rect x="417.8" y="180.7" width="74.4" height="219.3" fill="#78C043" rx="2" ry="2"/>
+<text x="455.0" y="175.7" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 108.030</text>
+<text x="455.0" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Mai</text>
+<rect x="502.2" y="151.6" width="74.4" height="248.4" fill="#78C043" rx="2" ry="2"/>
+<text x="539.4" y="146.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 122.369</text>
+<text x="539.4" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Jun</text>
+<rect x="586.7" y="141.9" width="74.4" height="258.1" fill="#78C043" rx="2" ry="2"/>
+<text x="623.9" y="136.9" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 127.168</text>
+<text x="623.9" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Jul</text>
+<rect x="671.1" y="97.1" width="74.4" height="302.9" fill="#78C043" rx="2" ry="2"/>
+<text x="708.3" y="92.1" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 149.230</text>
+<text x="708.3" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Ago</text>
+<rect x="755.6" y="190.6" width="74.4" height="209.4" fill="#78C043" rx="2" ry="2"/>
+<text x="792.8" y="185.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" fill="#333">R$ 103.189</text>
+<text x="792.8" y="418" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="#333">Set</text>
+<line x1="80" y1="400" x2="830" y2="400" stroke="#333" stroke-width="1.5"/>
+</svg>
+      </div>
+      <div class="grafico-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="680" height="420" viewBox="0 0 680 420">
+<rect width="680" height="420" fill="#FFFFFF"/>
+<text x="340.0" y="28" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" fill="#1a1a1a">Segmentação — Ouro concentra 33 clientes (55.0%)</text>
+<path d="M 230.0 220.0 L 230.0 75.0 A 145 145 0 0 1 289.0 87.5 Z" fill="#CD7F32" stroke="#fff" stroke-width="2"/>
+<text x="248.1" y="138.9" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">6.7%</text>
+<path d="M 230.0 220.0 L 289.0 87.5 A 145 145 0 0 1 274.8 357.9 Z" fill="#C0C0C0" stroke="#fff" stroke-width="2"/>
+<text x="316.9" y="228.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">38.3%</text>
+<path d="M 230.0 220.0 L 274.8 357.9 A 145 145 0 1 1 230.0 75.0 Z" fill="#FFD700" stroke="#fff" stroke-width="2"/>
+<text x="144.1" y="237.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">55.0%</text>
+<text x="480" y="112" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" fill="#333">Legenda</text>
+<rect x="480" y="130" width="16" height="16" fill="#CD7F32" stroke="#333" stroke-width="0.5" rx="2"/>
+<text x="504" y="143" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#333">Bronze: 4 (6.7%)</text>
+<rect x="480" y="168" width="16" height="16" fill="#C0C0C0" stroke="#333" stroke-width="0.5" rx="2"/>
+<text x="504" y="181" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#333">Prata: 23 (38.3%)</text>
+<rect x="480" y="206" width="16" height="16" fill="#FFD700" stroke="#333" stroke-width="0.5" rx="2"/>
+<text x="504" y="219" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#333">Ouro: 33 (55.0%)</text>
+<text x="480" y="262" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#555">Total: 60 clientes</text>
+</svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Top 5 Produtos por Receita</h2>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Produto</th><th>Receita Total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Teclado Mecanico</td><td class='valor'>R$ 84.922,01</td></tr>
+<tr><td>2</td><td>Organizador Multiuso</td><td class='valor'>R$ 80.386,90</td></tr>
+<tr><td>3</td><td>Bone Aba Curva</td><td class='valor'>R$ 74.888,51</td></tr>
+<tr><td>4</td><td>Faixa Elastica</td><td class='valor'>R$ 68.915,79</td></tr>
+<tr><td>5</td><td>Corda de Pular</td><td class='valor'>R$ 65.744,41</td></tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Receita por Categoria</h2>
+    <table>
+      <thead>
+        <tr><th>Categoria</th><th>Receita Total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vestuario</td><td class='valor'>R$ 233.850,61</td></tr>
+<tr><td>Casa</td><td class='valor'>R$ 221.674,10</td></tr>
+<tr><td>Papelaria</td><td class='valor'>R$ 208.761,98</td></tr>
+<tr><td>Eletronicos</td><td class='valor'>R$ 207.358,58</td></tr>
+<tr><td>Esporte</td><td class='valor'>R$ 199.319,07</td></tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Receita por Região</h2>
+    <table>
+      <thead>
+        <tr><th>Região</th><th>Receita Total</th><th>Ticket Médio</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Centro-Oeste</td><td class='valor'>R$ 242.067,51</td><td class='valor'>R$ 3.185,10</td></tr>
+<tr><td>Sudeste</td><td class='valor'>R$ 224.703,43</td><td class='valor'>R$ 3.036,53</td></tr>
+<tr><td>Sul</td><td class='valor'>R$ 204.450,24</td><td class='valor'>R$ 2.963,05</td></tr>
+<tr><td>Nordeste</td><td class='valor'>R$ 201.874,05</td><td class='valor'>R$ 3.421,59</td></tr>
+<tr><td>Norte</td><td class='valor'>R$ 197.869,11</td><td class='valor'>R$ 3.597,62</td></tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    SalesInsight PY · Gerado automaticamente · Apenas biblioteca padrão Python · Bônus B04
+  </footer>
+
+</div>
+</body>
+</html>
