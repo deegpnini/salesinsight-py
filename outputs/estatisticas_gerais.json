@@ -1,0 +1,87 @@
+{
+  "total_vendas_validas": 333,
+  "receita_total_geral": 1070964.34,
+  "receita_media_por_venda": 3216.11,
+  "vendas_acima_da_media": 140,
+  "relatorio_limpeza": {
+    "total_entrada": 400,
+    "total_removidos": 67,
+    "motivos_remocao": {
+      "campo_vazio:preco_unitario": 23,
+      "data_invalida": 23,
+      "campo_vazio:quantidade": 21
+    },
+    "total_final": 333
+  },
+  "top_5_produtos": [
+    {
+      "produto": "Teclado Mecanico",
+      "receita_total": 84922.01
+    },
+    {
+      "produto": "Organizador Multiuso",
+      "receita_total": 80386.9
+    },
+    {
+      "produto": "Bone Aba Curva",
+      "receita_total": 74888.51
+    },
+    {
+      "produto": "Faixa Elastica",
+      "receita_total": 68915.79
+    },
+    {
+      "produto": "Corda de Pular",
+      "receita_total": 65744.41
+    }
+  ],
+  "receita_por_categoria": [
+    {
+      "categoria": "Vestuario",
+      "receita_total": 233850.61
+    },
+    {
+      "categoria": "Casa",
+      "receita_total": 221674.1
+    },
+    {
+      "categoria": "Papelaria",
+      "receita_total": 208761.98
+    },
+    {
+      "categoria": "Eletronicos",
+      "receita_total": 207358.58
+    },
+    {
+      "categoria": "Esporte",
+      "receita_total": 199319.07
+    }
+  ],
+  "receita_por_regiao": [
+    {
+      "regiao": "Centro-Oeste",
+      "receita_total": 242067.51,
+      "ticket_medio": 3185.1
+    },
+    {
+      "regiao": "Sudeste",
+      "receita_total": 224703.43,
+      "ticket_medio": 3036.53
+    },
+    {
+      "regiao": "Sul",
+      "receita_total": 204450.24,
+      "ticket_medio": 2963.05
+    },
+    {
+      "regiao": "Nordeste",
+      "receita_total": 201874.05,
+      "ticket_medio": 3421.59
+    },
+    {
+      "regiao": "Norte",
+      "receita_total": 197869.11,
+      "ticket_medio": 3597.62
+    }
+  ]
+}
