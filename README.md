@@ -75,8 +75,9 @@ salesinsight-py/
 Como Matplotlib e Seaborn são proibidos pelo edital, os gráficos foram gerados em **SVG puro** com Python (apenas strings) e o dashboard em **HTML estático** (sem JavaScript e sem dependências externas).
 
 Arquivos gerados:
-- `outputs/grafico_receita_mensal.svg` — receita por mês
-- `outputs/grafico_segmentacao.svg` — distribuição de clientes por segmento
+- `outputs/grafico_receita_mensal.svg` — receita por mês (barras)
+- `outputs/grafico_segmentacao.svg` — distribuição de clientes por segmento (pizza)
+- `outputs/grafico_barras_agrupadas.svg` — receita por categoria e região (barras agrupadas)
 - `outputs/dashboard.html` — painel com KPIs, gráficos e tabelas
 
 ## 🛠️ Tecnologias utilizadas
