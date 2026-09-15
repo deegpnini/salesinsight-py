@@ -25,11 +25,26 @@ O projeto responde a 5 perguntas de negócio:
 
 O código utiliza **apenas a biblioteca padrão do Python** (sem Pandas, NumPy, Matplotlib ou Seaborn).
 
+
+### Alternativa - Script Python puro
+
+Também é possível rodar como script Python puro (sem Colab):
+
+```bash
+python salesinsight.py              # modo automatico
+python salesinsight.py sintetico    # forca dataset sintetico
+python salesinsight.py real         # forca dataset real (Superstore)
+```
+
+O arquivo `salesinsight.py` e a versao standalone do notebook,
+com toda a logica em funcoes documentadas e comentadas.
+
 ## 📂 Estrutura do projeto
 
 ```
 salesinsight-py/
 ├── M.p.Avaliativo_SCTEC.ipynb   ← notebook principal
+├── salesinsight.py               ← script Python puro (alternativa)
 ├── vendas.csv                    ← dataset gerado
 ├── README.md
 └── outputs/
