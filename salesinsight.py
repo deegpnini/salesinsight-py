@@ -854,7 +854,182 @@ def gerar_grafico_pizza_svg(clientes_segmentados, caminho=CAMINHO_GRAFICO_PIZZA)
     return caminho
 
 
-def gerar_dashboard_html(metricas, clientes_segmentados, estatisticas,
+
+
+def agregar_categoria_regiao(registros):
+    """Agrega receita total por categoria e regiao.
+
+    Args:
+        registros (list[dict]): Registros com receita_total, categoria e regiao.
+
+    Returns:
+        dict: {categoria: {regiao: receita_total}}
+    """
+    resultado = defaultdict(lambda: defaultdict(float))
+    for r in registros:
+        resultado[r["categoria"]][r["regiao"]] += r["receita_total"]
+    return {cat: dict(regs) for cat, regs in resultado.items()}
+
+
+def gerar_grafico_barras_agrupadas(dados_categoria_regiao,
+                                    titulo="Receita por Categoria e Regiao",
+                                    largura=900, altura=560):
+    """Gera grafico de barras agrupadas em SVG puro.
+
+    Eixo X: Categorias
+    Series: Regioes
+
+    Args:
+        dados_categoria_regiao (dict): {categoria: {regiao: receita}}
+        titulo (str): Titulo do grafico.
+        largura (int): Largura do SVG.
+        altura (int): Altura do SVG.
+
+    Returns:
+        str: Conteudo SVG completo.
+    """
+    if not dados_categoria_regiao:
+        return '<p>Sem dados para gerar o grafico.</p>'
+
+    categorias = list(dados_categoria_regiao.keys())
+    regioes = []
+    for cat in categorias:
+        for reg in dados_categoria_regiao[cat]:
+            if reg not in regioes:
+                regioes.append(reg)
+
+    if not regioes:
+        return '<p>Sem regioes disponiveis.</p>'
+
+    me, md, ms, mi = 90, 30, 90, 120
+    area_larg = largura - me - md
+    area_alt = altura - ms - mi
+
+    maior_valor = 0
+    for cat in categorias:
+        for reg in regioes:
+            v = dados_categoria_regiao.get(cat, {}).get(reg, 0)
+            try:
+                v = float(v)
+            except (TypeError, ValueError):
+                v = 0
+            if v > maior_valor:
+                maior_valor = v
+    if maior_valor <= 0:
+        maior_valor = 1
+
+    def fmt_curto(v):
+        v = float(v)
+        if v >= 1000000:
+            return f"R$ {v/1000000:.1f} mi"
+        if v >= 1000:
+            return f"R$ {v/1000:.0f} mil"
+        return f"R$ {v:.0f}"
+
+    def fmt_completo(v):
+        return f"R$ {float(v):,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+    cores = ["#78C043", "#2F6B3F", "#D4A72C", "#4A6FA5", "#8E5A9A", "#C56B38"]
+
+    total_geral = 0
+    for cat in categorias:
+        for reg in regioes:
+            try:
+                total_geral += float(dados_categoria_regiao.get(cat, {}).get(reg, 0))
+            except (TypeError, ValueError):
+                pass
+
+    titulo_id = "gr-barras-titulo"
+    descricao_id = "gr-barras-desc"
+
+    partes = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {largura} {altura}" '
+        f'width="{largura}" height="{altura}" role="img" '
+        f'aria-labelledby="{titulo_id}" aria-describedby="{descricao_id}" focusable="false">',
+        f'<title id="{titulo_id}">{titulo}</title>',
+        f'<desc id="{descricao_id}">Grafico de barras agrupadas. '
+        f'{len(categorias)} categorias, {len(regioes)} regioes. '
+        f'Receita total: {fmt_completo(total_geral)}.</desc>',
+        f'<rect width="{largura}" height="{altura}" fill="#ffffff" rx="12"/>',
+        f'<text x="{me}" y="40" font-family="Arial,Helvetica,sans-serif" '
+        f'font-size="20" font-weight="bold" fill="#222">{titulo}</text>',
+    ]
+
+    # Grid e escala Y
+    for i in range(6):
+        prop = i / 5
+        y = ms + area_alt - prop * area_alt
+        val = maior_valor * prop
+        partes.append(f'<line x1="{me}" y1="{y:.1f}" x2="{largura-md}" y2="{y:.1f}" '
+                      f'stroke="#ddd" stroke-width="1"/>')
+        partes.append(f'<text x="{me-10}" y="{y+4:.1f}" text-anchor="end" '
+                      f'font-family="Arial,Helvetica,sans-serif" font-size="11" '
+                      f'fill="#555">{fmt_curto(val)}</text>')
+
+    # Eixos
+    eixo_x = ms + area_alt
+    partes.append(f'<line x1="{me}" y1="{ms}" x2="{me}" y2="{eixo_x}" '
+                  f'stroke="#555" stroke-width="1.5"/>')
+    partes.append(f'<line x1="{me}" y1="{eixo_x}" x2="{largura-md}" y2="{eixo_x}" '
+                  f'stroke="#555" stroke-width="1.5"/>')
+
+    # Barras
+    n_cat = len(categorias)
+    n_reg = len(regioes)
+    larg_grupo = area_larg / n_cat
+    espaco_grupo = 16
+    larg_disp = larg_grupo - espaco_grupo
+    larg_barra = larg_disp / n_reg
+    if larg_barra > 48:
+        larg_barra = 48
+    larg_total = larg_barra * n_reg
+
+    for idx_cat, cat in enumerate(categorias):
+        centro = me + idx_cat * larg_grupo + larg_grupo / 2
+        inicio = centro - larg_total / 2
+
+        partes.append(f'<text x="{centro:.1f}" y="{eixo_x+28}" text-anchor="middle" '
+                      f'font-family="Arial,Helvetica,sans-serif" font-size="11" '
+                      f'font-weight="bold" fill="#333">{cat}</text>')
+
+        for idx_reg, reg in enumerate(regioes):
+            v = dados_categoria_regiao.get(cat, {}).get(reg, 0)
+            try:
+                v = float(v)
+            except (TypeError, ValueError):
+                v = 0
+            alt_barra = (v / maior_valor) * area_alt
+            x = inicio + idx_reg * larg_barra
+            y = eixo_x - alt_barra
+            cor = cores[idx_reg % len(cores)]
+
+            partes.append(f'<rect x="{x:.1f}" y="{y:.1f}" '
+                          f'width="{max(larg_barra-3,1):.1f}" height="{max(alt_barra,0):.1f}" '
+                          f'fill="{cor}" rx="2">'
+                          f'<title>{cat} | {reg}: {fmt_completo(v)}</title></rect>')
+
+            if v > 0:
+                y_txt = max(y - 6, ms - 8)
+                partes.append(f'<text x="{x+(larg_barra-3)/2:.1f}" y="{y_txt:.1f}" '
+                              f'text-anchor="middle" font-family="Arial,Helvetica,sans-serif" '
+                              f'font-size="9" font-weight="bold" fill="#333">{fmt_curto(v)}</text>')
+
+    # Legenda
+    leg_y = altura - 42
+    larg_item = area_larg / n_reg
+    for idx_reg, reg in enumerate(regioes):
+        x = me + idx_reg * larg_item
+        cor = cores[idx_reg % len(cores)]
+        partes.append(f'<rect x="{x:.1f}" y="{leg_y-10}" width="12" height="12" '
+                      f'fill="{cor}" rx="2"/>')
+        partes.append(f'<text x="{x+18:.1f}" y="{leg_y}" font-family="Arial,Helvetica,sans-serif" '
+                      f'font-size="11" fill="#444">{reg}</text>')
+
+    partes.append("</svg>")
+    return "\n".join(partes)
+
+
+def gerar_dashboard_html(metricas, clientes_segmentados, estatisticas, registros=None,
                           caminho=CAMINHO_DASHBOARD):
     """Gera dashboard HTML estatico.
 
@@ -950,6 +1125,7 @@ def gerar_dashboard_html(metricas, clientes_segmentados, estatisticas,
     <div class="graficos">
       <div class="grafico-box">{svg_barras}</div>
       <div class="grafico-box">{svg_pizza}</div>
+      <div class="grafico-box" style="grid-column: 1 / -1;">{svg_barras_agrupadas}</div>
     </div>
   </div>
 
@@ -1069,7 +1245,7 @@ def main(fonte="auto"):
     try:
         gerar_grafico_barras_svg(metricas["por_mes"])
         gerar_grafico_pizza_svg(clientes_segmentados)
-        gerar_dashboard_html(metricas, clientes_segmentados, estatisticas)
+        gerar_dashboard_html(metricas, clientes_segmentados, estatisticas, registros)
         print("\n[BONUS B04] Visualizacoes geradas em outputs/:")
         print("  - grafico_receita_mensal.svg")
         print("  - grafico_segmentacao.svg")
