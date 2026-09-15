@@ -927,6 +927,7 @@ def gerar_dashboard_html(metricas, clientes_segmentados, estatisticas,
   th {{ background: #f0f7e8; color: var(--verde-escuro); font-weight: 600; }}
   tr:hover {{ background: #f9fbf6; }}
   td.valor {{ text-align: right; }}
+  .grafico-box svg {{ max-width: 100%; height: auto; }}
   footer {{ text-align: center; font-size: 12px; color: #888; margin-top: 32px; }}
 </style>
 </head>
