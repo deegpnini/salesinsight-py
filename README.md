@@ -83,7 +83,8 @@ Arquivos gerados:
 
 - Python 3.10+
 - Biblioteca padrão: `csv`, `json`, `math`, `os`, `random`, `re`, `collections`, `datetime`
-- Google Colab (ambiente de execução)
+- Google Colab (recomendado para o notebook)
+- Python 3.10+ local (para `salesinsight.py`, sem dependencias externas)
 
 ## 🎥 Vídeo de demonstração
 
