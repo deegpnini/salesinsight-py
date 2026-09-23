@@ -97,5 +97,5 @@ Projeto desenvolvido individualmente para fins avaliativos.
 Nenhuma solução externa foi copiada; o autor é capaz de explicar integralmente o código entregue.
 
 ---
-**Comandante Hebron (Helyton Renato Gonçalves Ronchi)**
+**Helyton Renato Gonçalves Ronchi**
 SCTEC/SENAI — Turma T4

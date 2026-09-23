@@ -5,7 +5,7 @@ SalesInsight PY - Analise de Dados de Vendas
 Mini-Projeto Avaliativo do Modulo 01 - SCTEC/SENAI
 Curso: Desenvolvimento de IA para Analise Preditiva [T4]
 
-Autor: Helyton Renato Goncalves Ronchi (Comandante Hebron)
+Autor: Helyton Renato Goncalves Ronchi (Helyton Renato Gonçalves Ronchi)
 Turma: T4
 
 Descricao:

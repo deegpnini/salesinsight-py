@@ -69,5 +69,5 @@ Quadro de tarefas do mini-projeto avaliativo (Módulo 01 — Semana 08).
 - **Vídeo:** [a ser preenchido]
 
 ---
-**Comandante Hebron (Helyton Renato Gonçalves Ronchi)**
+**Helyton Renato Gonçalves Ronchi (Helyton Renato Gonçalves Ronchi)**
 SCTEC/SENAI — Turma T4
