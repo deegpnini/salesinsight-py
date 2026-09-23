@@ -39,6 +39,14 @@ python salesinsight.py real         # forca dataset real (Superstore)
 O arquivo `salesinsight.py` e a versao standalone do notebook,
 com toda a logica em funcoes documentadas e comentadas.
 
+## 🌐 Dashboard Publicado
+
+O dashboard está disponível online:
+
+**https://deegpnini.github.io/salesinsight-py/**
+
+Ele mostra os 3 gráficos (barras, pizza e barras agrupadas), os KPIs e os principais insights.
+
 ## 📂 Estrutura do projeto
 
 ```
