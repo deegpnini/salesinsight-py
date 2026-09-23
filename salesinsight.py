@@ -1146,6 +1146,18 @@ def gerar_dashboard_html(metricas, clientes_segmentados, estatisticas, registros
     <div class="kpi"><div class="label">Clientes (O / P / B)</div><div class="value">{n_ouro} / {n_prata} / {n_bronze}</div></div>
   </div>
 
+
+  <div class="section">
+    <h2>Principais Insights</h2>
+    <ul style="padding-left: 20px; line-height: 1.8; font-size: 15px; margin: 0;">
+      <li><strong>Fevereiro</strong> foi o mês de maior receita (<strong>R$ 167.513,45</strong>).</li>
+      <li>O segmento <strong>Ouro</strong> concentra <strong>55%</strong> dos clientes (33 de 60).</li>
+      <li><strong>Vestuario</strong> e <strong>Casa</strong> lideram a receita por categoria.</li>
+      <li>A regiao <strong>Centro-Oeste</strong> tem a maior receita total (<strong>R$ 242.067,51</strong>).</li>
+      <li>O produto mais rentavel e o <strong>Teclado Mecanico</strong> (<strong>R$ 84.922,01</strong>).</li>
+    </ul>
+  </div>
+
   <div class="section">
     <h2>Visualizacoes</h2>
     <div class="graficos">
