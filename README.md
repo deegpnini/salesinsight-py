@@ -1,117 +1,77 @@
 # SalesInsight PY — Análise de Dados de Vendas
 
-Mini-Projeto Avaliativo do Módulo 01
-**Curso:** Desenvolvimento de IA para Análise Preditiva [T4] — SCTEC/SENAI
+Mini-projeto avaliativo do Módulo 1 (Desenvolvimento de IA para Análise Preditiva — T4, SCTEC/SENAI). Script em Python puro (apenas biblioteca padrão) que limpa um CSV de vendas bagunçado e gera um relatório para a diretoria de uma empresa de varejo fictícia.
 
-## 🎯 Objetivo
+## O que o script faz
 
-Simular o trabalho de um Analista de Dados Júnior em uma empresa de varejo:
-receber um CSV de vendas com sujeira proposital, limpar e transformar os dados,
-calcular métricas de negócio e segmentar clientes.
+- **RF01** — Criar ou carregar dataset de vendas (sintético ou Superstore)
+- **RF02** — Inspecionar dados (total, colunas, ausentes, primeiros registros)
+- **RF03** — Limpar dados com datetime e regex (datas, tipos, campos vazios)
+- **RF04** — Criar colunas derivadas (receita_total, mês, trimestre, ano, faixa)
+- **RF05** — Calcular métricas agregadas (mês, produto, categoria, região)
+- **RF06** — Segmentar clientes (Bronze, Prata, Ouro) com função lambda
+- **RF07** — Organizar código em funções reutilizáveis e ordem superior
+- **RF08** — Exportar resultados em CSV e JSON
+- **RF09** — Executar fluxo completo (main) com if __name__ == '__main__'
 
-O projeto responde a 5 perguntas de negócio:
+## Datasets
 
-1. Como as vendas se comportam ao longo do tempo (mês e trimestre)?
-2. Quais produtos e categorias geram mais receita?
-3. Quais regiões têm melhor desempenho?
-4. Quais clientes são mais valiosos (Bronze / Prata / Ouro)?
-5. Quantas vendas tiveram receita acima da média geral?
+- vendas.csv — dataset sintético (gerado pelo próprio código)
+- Suporte adicional ao dataset real **Superstore** (Kaggle), usado para extrapolar a análise além do escopo mínimo
 
-## 🚀 Como executar
+**Colunas esperadas:** data, cliente, produto, categoria, quantidade, preco_unitario, regiao
 
-1. Abra o notebook `M.p.Avaliativo_SCTEC.ipynb` no Google Colab.
-2. Execute as células na ordem (1 → 5).
-3. O notebook gera o dataset sintético, executa todo o pipeline e exporta os resultados na pasta `outputs/`.
-
-O código utiliza **apenas a biblioteca padrão do Python** (sem Pandas, NumPy, Matplotlib ou Seaborn).
-
-
-### Alternativa - Script Python puro
-
-Também é possível rodar como script Python puro (sem Colab):
+## Como rodar
 
 ```bash
-python salesinsight.py              # modo automatico
-python salesinsight.py sintetico    # forca dataset sintetico
-python salesinsight.py real         # forca dataset real (Superstore)
+python salesinsight.py              # modo automático
+python salesinsight.py sintetico    # força dataset sintético
+python salesinsight.py real         # força dataset real (Superstore)
 ```
 
-O arquivo `salesinsight.py` e a versao standalone do notebook,
-com toda a logica em funcoes documentadas e comentadas.
+**Requisitos:** apenas Python 3.x — sem dependências externas (sem Pandas/NumPy/Matplotlib), por exigência do escopo do Módulo 1.
 
-## 🌐 Dashboard Publicado
+## Saídas geradas
 
-O dashboard está disponível online:
+Após a execução, os seguintes arquivos são criados na pasta outputs/:
 
-**https://deegpnini.github.io/salesinsight-py/**
+**Relatórios (RF08):**
+- outputs/metricas_por_mes.csv
+- outputs/segmentacao_clientes.csv
+- outputs/estatisticas_gerais.json
 
-Ele mostra os 3 gráficos (barras, pizza e barras agrupadas), os KPIs e os principais insights.
+**Visualizações (Bônus B04):**
+- outputs/grafico_receita_mensal.svg
+- outputs/grafico_segmentacao.svg
+- outputs/grafico_barras_agrupadas.svg
+- outputs/dashboard.html
 
-## 📂 Estrutura do projeto
+## Bônus B04 — Gráficos SVG + Dashboard HTML
 
-```
-salesinsight-py/
-├── M.p.Avaliativo_SCTEC.ipynb   ← notebook principal
-├── salesinsight.py               ← script Python puro (alternativa)
-├── vendas.csv                    ← dataset gerado
-├── README.md
-├── CHANGELOG.md
-├── KANBAN.md
-├── index.html
-├── outputs/
-│   ├── metricas_por_mes.csv
-│   ├── segmentacao_clientes.csv
-│   ├── estatisticas_gerais.json
-│   ├── grafico_receita_mensal.svg
-│   ├── grafico_segmentacao.svg
-│   ├── grafico_barras_agrupadas.svg
-│   └── dashboard.html
-└── docs/
-    ├── grafico_receita_mensal.svg
-    ├── grafico_segmentacao.svg
-    ├── grafico_barras_agrupadas.svg
-    └── index.html
-```
+Como Matplotlib e Seaborn são proibidos pelo escopo, os gráficos foram gerados em **SVG puro** com Python (apenas strings) e o dashboard em **HTML estático** (sem JavaScript).
 
-## 📋 Requisitos Funcionais (RF01–RF09)
+**Dashboard publicado:** https://deegpnini.github.io/salesinsight-py/
 
-| RF   | Descrição                              | Status |
-|------|----------------------------------------|--------|
-| RF01 | Criar / carregar dataset               | ✅     |
-| RF02 | Inspecionar dados                      | ✅     |
-| RF03 | Limpar dados (datetime + regex)        | ✅     |
-| RF04 | Criar colunas derivadas                | ✅     |
-| RF05 | Calcular métricas agregadas            | ✅     |
-| RF06 | Segmentação de clientes (lambda)       | ✅     |
-| RF07 | Função de ordem superior               | ✅     |
-| RF08 | Exportar CSV e JSON                    | ✅     |
-| RF09 | Fluxo completo (main)                  | ✅     |
+## Estrutura do repositório
 
-## 🌟 Bônus B04 — Gráficos SVG + Dashboard HTML
+| Branch | Propósito |
+|---|---|
+| main | Versão estável/entregável |
+| develop | Integração de features |
+| feat/pipeline-dados | Desenvolvimento do pipeline de limpeza/análise |
+| docs/readme | Documentação |
 
-Como Matplotlib e Seaborn são proibidos pelo edital, os gráficos foram gerados em **SVG puro** com Python (apenas strings) e o dashboard em **HTML estático** (sem JavaScript e sem dependências externas).
+**Vídeo de demonstração (até 5 min):** [link no AVA]
 
-Arquivos gerados:
-- `outputs/grafico_receita_mensal.svg` — receita por mês (barras)
-- `outputs/grafico_segmentacao.svg` — distribuição de clientes por segmento (pizza)
-- `outputs/grafico_barras_agrupadas.svg` — receita por categoria e região (barras agrupadas)
-- `outputs/dashboard.html` — painel com KPIs, gráficos e tabelas
+---
 
-## 🛠️ Tecnologias utilizadas
+## Ferramentas de apoio e declaração de autoria
 
-- Python 3.10+
-- Biblioteca padrão: `csv`, `json`, `math`, `os`, `random`, `re`, `collections`, `datetime`
-- Google Colab (recomendado para o notebook)
-- Python 3.10+ local (para `salesinsight.py`, sem dependencias externas)
+**IAs generativas usadas como apoio:** DeepSeek, Claude, ChatGPT, Gemini e Grok — para geração de código, revisão técnica e auditoria cruzada de resultados.
 
-## 🎥 Vídeo de demonstração
+**Sou o autor intelectual do projeto.** As decisões de arquitetura (Python puro, estrutura do pipeline), as escolhas metodológicas e a lógica geral (RF01–RF09) foram definidas e validadas por mim. Estou em transição de carreira e uso IAs como ferramenta de produtividade — não sou especialista em cada linha de código, mas sou capaz de explicar e defender qualquer decisão tomada no projeto, em qualquer avaliação.
 
-[Link do vídeo — a ser preenchido após a gravação]
-
-## 📜 Declaração de Autoria
-
-Projeto desenvolvido individualmente para fins avaliativos.
-Nenhuma solução externa foi copiada; o autor é capaz de explicar integralmente o código entregue.
+Nenhuma solução externa foi copiada; o código foi gerado com apoio de IA e revisado/validado sob minha direção.
 
 ---
 **Helyton Renato Gonçalves Ronchi**
