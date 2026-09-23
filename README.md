@@ -21,6 +21,8 @@ Mini-projeto avaliativo do Módulo 1 (Desenvolvimento de IA para Análise Predit
 
 **Colunas esperadas:** data, cliente, produto, categoria, quantidade, preco_unitario, regiao
 
+> **Nota:** os nomes de colunas no CSV usam `regiao` (sem acento), seguindo o padrão Python para identificadores. No texto descritivo, usamos a grafia correta da língua portuguesa (região).
+
 ## Como rodar
 
 ```bash
