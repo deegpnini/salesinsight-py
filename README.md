@@ -47,13 +47,22 @@ salesinsight-py/
 ├── salesinsight.py               ← script Python puro (alternativa)
 ├── vendas.csv                    ← dataset gerado
 ├── README.md
-└── outputs/
-    ├── metricas_por_mes.csv
-    ├── segmentacao_clientes.csv
-    ├── estatisticas_gerais.json
+├── CHANGELOG.md
+├── KANBAN.md
+├── index.html
+├── outputs/
+│   ├── metricas_por_mes.csv
+│   ├── segmentacao_clientes.csv
+│   ├── estatisticas_gerais.json
+│   ├── grafico_receita_mensal.svg
+│   ├── grafico_segmentacao.svg
+│   ├── grafico_barras_agrupadas.svg
+│   └── dashboard.html
+└── docs/
     ├── grafico_receita_mensal.svg
     ├── grafico_segmentacao.svg
-    └── dashboard.html
+    ├── grafico_barras_agrupadas.svg
+    └── index.html
 ```
 
 ## 📋 Requisitos Funcionais (RF01–RF09)
