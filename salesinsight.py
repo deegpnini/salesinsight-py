@@ -54,6 +54,7 @@ CAMINHO_SEGMENTACAO_CSV = os.path.join(PASTA_OUTPUTS, "segmentacao_clientes.csv"
 CAMINHO_ESTATISTICAS_JSON = os.path.join(PASTA_OUTPUTS, "estatisticas_gerais.json")
 CAMINHO_GRAFICO_BARRAS = os.path.join(PASTA_OUTPUTS, "grafico_receita_mensal.svg")
 CAMINHO_GRAFICO_PIZZA = os.path.join(PASTA_OUTPUTS, "grafico_segmentacao.svg")
+CAMINHO_GRAFICO_BARRAS_AGRUPADAS = os.path.join(PASTA_OUTPUTS, "grafico_barras_agrupadas.svg")
 CAMINHO_DASHBOARD = os.path.join(PASTA_OUTPUTS, "dashboard.html")
 
 FORMATOS_DATA_ACEITOS = ["%m/%d/%Y", "%d/%m/%Y", "%d-%m-%Y", "%m-%d-%Y", "%Y-%m-%d"]
@@ -1029,6 +1030,25 @@ def gerar_grafico_barras_agrupadas(dados_categoria_regiao,
     return "\n".join(partes)
 
 
+def gerar_grafico_barras_agrupadas_svg(dados_categoria_regiao, caminho=CAMINHO_GRAFICO_BARRAS_AGRUPADAS):
+    """Gera o arquivo SVG do grafico de barras agrupadas (categoria x regiao).
+
+    Args:
+        dados_categoria_regiao (dict): {categoria: {regiao: receita}}
+        caminho (str): Caminho de saida.
+
+    Returns:
+        str: Caminho do arquivo gerado.
+    """
+    if not dados_categoria_regiao:
+        raise ValueError("Dados de categoria x regiao estao vazios.")
+    conteudo = gerar_grafico_barras_agrupadas(dados_categoria_regiao)
+    os.makedirs(os.path.dirname(caminho), exist_ok=True)
+    with open(caminho, "w", encoding="utf-8") as f:
+        f.write(conteudo)
+    return caminho
+
+
 def gerar_dashboard_html(metricas, clientes_segmentados, estatisticas, registros=None,
                           caminho=CAMINHO_DASHBOARD):
     """Gera dashboard HTML estatico.
@@ -1251,6 +1271,9 @@ def main(fonte="auto"):
     try:
         gerar_grafico_barras_svg(metricas["por_mes"])
         gerar_grafico_pizza_svg(clientes_segmentados)
+        # Gerar SVG de barras agrupadas
+        dados_cat_reg = agregar_categoria_regiao(registros)
+        gerar_grafico_barras_agrupadas_svg(dados_cat_reg)
         gerar_dashboard_html(metricas, clientes_segmentados, estatisticas, registros)
         print("\n[BONUS B04] Visualizacoes geradas em outputs/:")
         print("  - grafico_receita_mensal.svg")
