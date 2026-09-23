@@ -1152,9 +1152,9 @@ def gerar_dashboard_html(metricas, clientes_segmentados, estatisticas, registros
     <ul style="padding-left: 20px; line-height: 1.8; font-size: 15px; margin: 0;">
       <li><strong>Fevereiro</strong> foi o mês de maior receita (<strong>R$ 167.513,45</strong>).</li>
       <li>O segmento <strong>Ouro</strong> concentra <strong>55%</strong> dos clientes (33 de 60).</li>
-      <li><strong>Vestuario</strong> e <strong>Casa</strong> lideram a receita por categoria.</li>
-      <li>A regiao <strong>Centro-Oeste</strong> tem a maior receita total (<strong>R$ 242.067,51</strong>).</li>
-      <li>O produto mais rentavel e o <strong>Teclado Mecanico</strong> (<strong>R$ 84.922,01</strong>).</li>
+      <li><strong>Vestuário</strong> (R$ 233.850,61) e <strong>Casa</strong> (R$ 221.674,10) lideram a receita por categoria.</li>
+      <li>A região <strong>Centro-Oeste</strong> tem a maior receita total (<strong>R$ 242.067,51</strong>).</li>
+      <li>O produto mais rentável é o <strong>Teclado Mecânico</strong> (<strong>R$ 84.922,01</strong>).</li>
     </ul>
   </div>
 
