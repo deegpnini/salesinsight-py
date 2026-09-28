@@ -1,5 +1,19 @@
 # SalesInsight PY — Análise de Dados de Vendas
 
+**Mini-projeto avaliativo — Módulo 1 — SCTEC/SENAI T4**
+
+---
+
+## Objetivo
+
+Simular o papel de um analista de dados júnior: limpar um CSV de vendas
+bagunçado e gerar um relatório para a diretoria, usando apenas a
+biblioteca padrão do Python.
+
+---
+
+# SalesInsight PY — Análise de Dados de Vendas
+
 Mini-projeto avaliativo do Módulo 1 (Desenvolvimento de IA para Análise Preditiva — T4, SCTEC/SENAI). Script em Python puro (apenas biblioteca padrão) que limpa um CSV de vendas bagunçado e gera um relatório para a diretoria de uma empresa de varejo fictícia.
 
 ## O que o script faz
