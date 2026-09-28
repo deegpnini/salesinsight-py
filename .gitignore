@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Dados e outputs (opcional — descomente se não quiser subir)
+# vendas.csv
+# outputs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Segredos
+.env
+.env.*
+*token*
+*secret*
+*.key
+*.pem
