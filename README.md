@@ -6,15 +6,9 @@
 
 ## Objetivo
 
-Simular o papel de um analista de dados júnior: limpar um CSV de vendas
-bagunçado e gerar um relatório para a diretoria, usando apenas a
-biblioteca padrão do Python.
+Simular o papel de um analista de dados júnior: limpar um CSV de vendas bagunçado e gerar um relatório para a diretoria, usando apenas a biblioteca padrão do Python.
 
 ---
-
-# SalesInsight PY — Análise de Dados de Vendas
-
-Mini-projeto avaliativo do Módulo 1 (Desenvolvimento de IA para Análise Preditiva — T4, SCTEC/SENAI). Script em Python puro (apenas biblioteca padrão) que limpa um CSV de vendas bagunçado e gera um relatório para a diretoria de uma empresa de varejo fictícia.
 
 ## O que o script faz
 
@@ -26,24 +20,20 @@ Mini-projeto avaliativo do Módulo 1 (Desenvolvimento de IA para Análise Predit
 - **RF06** — Segmentar clientes (Bronze, Prata, Ouro) com função lambda
 - **RF07** — Organizar código em funções reutilizáveis e ordem superior
 - **RF08** — Exportar resultados em CSV e JSON
-- **RF09** — Executar fluxo completo (main) com if __name__ == '__main__'
+- **RF09** — Executar fluxo completo (main) com if __name__ == __main__
 
 ## Datasets
 
-- vendas.csv — dataset sintético (gerado pelo próprio código)
+- **vendas.csv** — dataset sintético (gerado pelo próprio código)
 - Suporte adicional ao dataset real **Superstore** (Kaggle), usado para extrapolar a análise além do escopo mínimo
 
-**Colunas esperadas:** data, cliente, produto, categoria, quantidade, preco_unitario, regiao
-
-> **Nota:** os nomes de colunas no CSV usam `regiao` (sem acento), seguindo o padrão Python para identificadores. No texto descritivo, usamos a grafia correta da língua portuguesa (região).
+Colunas esperadas: data, cliente, produto, categoria, quantidade, preco_unitario, regiao
 
 ## Como rodar
 
-```bash
 python salesinsight.py              # modo automático
 python salesinsight.py sintetico    # força dataset sintético
 python salesinsight.py real         # força dataset real (Superstore)
-```
 
 **Requisitos:** apenas Python 3.x — sem dependências externas (sem Pandas/NumPy/Matplotlib), por exigência do escopo do Módulo 1.
 
@@ -71,13 +61,13 @@ Como Matplotlib e Seaborn são proibidos pelo escopo, os gráficos foram gerados
 ## Estrutura do repositório
 
 | Branch | Propósito |
-|---|---|
+|--------|-----------|
 | main | Versão estável/entregável |
 | develop | Integração de features |
 | feat/pipeline-dados | Desenvolvimento do pipeline de limpeza/análise |
 | docs/readme | Documentação |
 
-**Vídeo de demonstração (até 5 min):** https://youtu.be/nOI1rsR_if0?is=Dspu7SqKN861XYDo
+**Vídeo de demonstração (até 5 min):** https://youtu.be/nOIfsR_f0f9
 
 ---
 
@@ -90,5 +80,6 @@ Como Matplotlib e Seaborn são proibidos pelo escopo, os gráficos foram gerados
 Nenhuma solução externa foi copiada; o código foi gerado com apoio de IA e revisado/validado sob minha direção.
 
 ---
+
 **Helyton Renato Gonçalves Ronchi**
 SCTEC/SENAI — Turma T4
