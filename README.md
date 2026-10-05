@@ -67,7 +67,7 @@ Como Matplotlib e Seaborn são proibidos pelo escopo, os gráficos foram gerados
 | feat/pipeline-dados | Desenvolvimento do pipeline de limpeza/análise |
 | docs/readme | Documentação |
 
-**Vídeo de demonstração (até 5 min):** https://youtu.be/nOIfsR_f0f9
+**Vídeo de demonstração (até 5 min):** https://youtu.be/nOI1rsR_if0?is=AWv913vM3qQWR6ky
 
 ---
 
