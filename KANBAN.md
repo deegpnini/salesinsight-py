@@ -8,7 +8,7 @@
 
 ## Em Andamento (Doing)
 
-- [ ] Documentar decisões técnicas no README
+*(vazio)*
 
 ## Concluído (Done)
 
@@ -25,3 +25,4 @@
 - [x] README completo
 - [x] Kanban inicial
 - [x] Repositório no GitHub
+- [x] Documentar decisões técnicas no README
